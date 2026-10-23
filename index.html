@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10091b">
+<title>Kryy Panel — Demo</title>
+<style>
+:root{--bg:#090610;--panel:#151020;--panel2:#1c1530;--line:#302346;--purple:#8b45ff;--purple2:#b58aff;--text:#f5f0ff;--muted:#a99bbd;--green:#52e0a0;--red:#ff7185}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 20% 0,#21113a 0,transparent 35%),var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}button{cursor:pointer;border:0;border-radius:11px;padding:11px 14px;background:var(--purple);color:white;font-weight:700}button.secondary{background:#211833;border:1px solid var(--line);color:#e6d8ff}button.danger{background:#481a2b;color:#ffc0cb}button:disabled{opacity:.45;cursor:not-allowed}.layout{display:flex;min-height:100vh}.sidebar{width:235px;padding:22px 15px;background:#0d0916;border-right:1px solid var(--line);flex-shrink:0}.brand{font-weight:900;font-size:21px;letter-spacing:1px;margin:4px 10px 28px}.brand span{color:var(--purple2)}.nav{display:flex;flex-direction:column;gap:7px}.nav button{background:transparent;color:var(--muted);text-align:left;font-weight:600}.nav button.active,.nav button:hover{background:#241638;color:#fff}.side-note{font-size:12px;color:var(--muted);line-height:1.5;margin:28px 10px}.main{flex:1;min-width:0;padding:22px;max-width:1400px;margin:auto;width:100%}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}.eyebrow{color:var(--purple2);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.top h1{font-size:clamp(24px,4vw,34px);margin:5px 0}.muted{color:var(--muted)}.user{border:1px solid var(--line);background:var(--panel);padding:9px 12px;border-radius:12px;font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.stat,.card,.server{background:linear-gradient(145deg,#191126,#110c1b);border:1px solid var(--line);border-radius:17px;padding:17px}.stat small{display:block;color:var(--muted);margin-bottom:10px}.stat strong{font-size:25px}.stat .hint{font-size:12px;color:var(--green);margin-top:6px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:25px 0 13px}.section-head h2{font-size:18px;margin:0}.servers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.server-top{display:flex;align-items:center;gap:12px}.server-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#2a1943;font-size:21px}.server h3{margin:0;font-size:16px}.server p{margin:4px 0 0;color:var(--muted);font-size:12px}.status{margin-left:auto;border-radius:99px;padding:5px 9px;font-size:11px;font-weight:800;background:#123727;color:var(--green)}.status.off{background:#401b2a;color:#ff9cae}.metrics{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}.metric{background:#211832;border:1px solid #322347;border-radius:8px;padding:6px 8px;color:#d3c2ef;font-size:11px}.server-actions{display:flex;gap:7px;flex-wrap:wrap}.server-actions button{padding:8px 11px;font-size:12px}.console{background:#05070b;border:1px solid #302346;border-radius:13px;overflow:hidden}.console-bar{padding:12px 14px;background:#171022;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}.logs{height:300px;overflow:auto;padding:14px;font:12px/1.8 ui-monospace,SFMono-Regular,monospace;color:#c8d4e5;white-space:pre-wrap}.logs .good{color:#52e0a0}.logs .warn{color:#ffd27c}.console-input{display:flex;gap:8px;padding:10px;border-top:1px solid #282033}.console-input input{min-width:0;flex:1;background:#151020;border:1px solid var(--line);border-radius:9px;padding:10px;color:white}.notice{border:1px solid #624521;background:#2b1e10;color:#ffdfa8;padding:13px 15px;border-radius:12px;font-size:12px;line-height:1.5;margin-top:18px}.page{display:none}.page.active{display:block}.empty{color:var(--muted);padding:24px;text-align:center}.mobile-nav{display:none}.modal{display:none;position:fixed;inset:0;background:#000a;z-index:10;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.modal-card{width:min(100%,420px);background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}.modal-card input{width:100%;padding:12px;background:#0c0813;border:1px solid var(--line);border-radius:10px;color:white;margin:8px 0 14px}.modal-card h2{margin-top:0}.actions{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sidebar{width:190px}.servers{grid-template-columns:1fr}}
+@media(max-width:600px){.layout{display:block}.sidebar{display:none}.main{padding:16px 13px 85px}.top{align-items:flex-start}.top .user{font-size:11px}.grid{gap:8px}.stat{padding:13px}.stat strong{font-size:22px}.stat small{font-size:12px}.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:5;background:#100b19;border-top:1px solid var(--line);justify-content:space-around;padding:8px 3px calc(8px + env(safe-area-inset-bottom))}.mobile-nav button{background:transparent;color:var(--muted);font-size:11px;padding:7px 8px}.mobile-nav button.active{color:#d7baff}.section-head{margin-top:21px}.logs{height:260px}.notice{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">KRYy <span>PANEL</span></div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard">⌂ &nbsp; Dashboard</button>
+    <button data-page="servers">▦ &nbsp; Daftar Server</button>
+    <button data-page="console">›_ &nbsp; Console</button>
+    <button data-page="account">♙ &nbsp; Akun Demo</button>
+  </nav>
+  <div class="side-note">Kryy Panel v0.1<br>Demo UI • GitHub Pages<br><br>Server di sini hanya simulasi, belum terhubung ke Pterodactyl API.</div>
+</aside>
+<main class="main">
+  <header class="top">
+    <div><div class="eyebrow">Control panel / Demo</div><h1 id="pageTitle">Dashboard</h1><div class="muted" id="subtitle">Selamat datang di Kryy Panel.</div></div>
+    <div class="user" id="userLabel">👤 Guest</div>
+  </header>
+
+  <section class="page active" id="page-dashboard">
+    <div class="grid">
+      <div class="stat"><small>Total server</small><strong id="totalCount">4</strong><div class="hint">Server demo</div></div>
+      <div class="stat"><small>Online</small><strong id="onlineCount">3</strong><div class="hint">● Status simulasi</div></div>
+      <div class="stat"><small>Offline</small><strong id="offlineCount">1</strong><div class="hint" style="color:var(--red)">● Status simulasi</div></div>
+      <div class="stat"><small>CPU rata-rata</small><strong>28%</strong><div class="hint">Data contoh</div></div>
+    </div>
+    <div class="section-head"><h2>Server terbaru</h2><button class="secondary" data-goto="servers">Lihat semua</button></div>
+    <div class="servers" id="recentServers"></div>
+    <div class="notice">⚠️ Mode demo: tombol start/stop/restart hanya mengubah status contoh di halaman ini. Tidak ada server nyata yang dijalankan atau perintah terminal yang dieksekusi.</div>
+  </section>
+
+  <section class="page" id="page-servers">
+    <div class="section-head" style="margin-top:0"><h2>Daftar server</h2><button id="addServer">＋ Server demo</button></div>
+    <div class="muted" style="font-size:13px;margin-bottom:14px">Pilih server untuk membuka console simulasi.</div>
+    <div class="servers" id="allServers"></div>
+  </section>
+
+  <section class="page" id="page-console">
+    <div class="card" style="padding:12px;margin-bottom:13px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <label for="consoleServer" class="muted">Pilih server</label><select id="consoleServer" style="flex:1;min-width:160px;background:#100b19;border:1px solid var(--line);border-radius:9px;padding:10px;color:white"></select>
+      <span id="consoleStatus" class="status">Online</span>
+    </div>
+    <div class="console">
+      <div class="console-bar"><strong id="consoleName">Minecraft Survival</strong><span class="eyebrow">Console demo</span></div>
+      <div class="actions" style="padding:10px;border-bottom:1px solid #282033">
+        <button id="startBtn">▶ Start</button><button class="danger" id="stopBtn">■ Stop</button><button class="secondary" id="restartBtn">⟳ Restart</button>
+      </div>
+      <div class="logs" id="logs" aria-live="polite"></div>
+      <form class="console-input" id="commandForm"><input id="command" placeholder="Ketik perintah demo..." autocomplete="off"><button type="submit">Kirim</button></form>
+    </div>
+    <div class="notice">Console ini hanya menambahkan teks simulasi. Jangan masukkan password atau token. Untuk console asli dibutuhkan backend aman yang terhubung ke Pterodactyl.</div>
+  </section>
+
+  <section class="page" id="page-account">
+    <div class="card">
+      <h2>Akun demo</h2><p class="muted">Masuk hanya mengubah nama tampilan di browser ini. Ini bukan autentikasi sungguhan.</p>
+      <div class="actions"><button id="loginOpen">Masuk demo</button><button class="secondary" id="logout">Keluar</button></div>
+      <div class="notice">Jangan gunakan password asli. Panel demo ini belum menyimpan akun online dan belum memiliki keamanan akun pelanggan.</div>
+    </div>
+  </section>
+  <footer class="muted" style="font-size:11px;text-align:center;padding:25px 0">Kryy Panel • Demo UI v0.1 • Tidak terhubung ke server nyata</footer>
+</main>
+</div>
+<nav class="mobile-nav">
+  <button class="active" data-page="dashboard">⌂<br>Beranda</button>
+  <button data-page="servers">▦<br>Server</button>
+  <button data-page="console">›_<br>Console</button>
+  <button data-page="account">♙<br>Akun</button>
+</nav>
+<div class="modal" id="loginModal" role="dialog" aria-modal="true">
+ <div class="modal-card"><h2>Masuk demo</h2><p class="muted" style="font-size:13px">Masukkan nama tampilan. Tidak perlu password.</p>
+ <form id="loginForm"><label for="demoName">Nama pengguna</label><input id="demoName" maxlength="24" placeholder="contoh: kryyuser" required><div class="actions"><button type="submit">Masuk demo</button><button type="button" class="secondary" id="closeModal">Batal</button></div></form></div>
+</div>
+<script>
+const servers=[
+{id:'mc',name:'Minecraft Survival',type:'Minecraft Java',icon:'⛏️',status:'Online',cpu:24,ram:'1.2 GB',disk:'12.4 GB'},
+{id:'wa',name:'Bot WhatsApp',type:'Node.js',icon:'🟢',status:'Online',cpu:11,ram:'256 MB',disk:'2.0 GB'},
+{id:'web',name:'Website Panel',type:'Docker',icon:'🌐',status:'Offline',cpu:0,ram:'0 MB',disk:'0.8 GB'},
+{id:'dc',name:'Bot Discord',type:'Node.js',icon:'🤖',status:'Online',cpu:18,ram:'512 MB',disk:'3.1 GB'}
+];
+const $=id=>document.getElementById(id);
+let selected='mc';
+function serverCard(s){return `<article class="server"><div class="server-top"><div class="server-icon">${s.icon}</div><div><h3>${s.name}</h3><p>${s.type}</p></div><span class="status ${s.status==='Offline'?'off':''}">${s.status}</span></div><div class="metrics"><span class="metric">CPU ${s.cpu}%</span><span class="metric">RAM ${s.ram}</span><span class="metric">Disk ${s.disk}</span></div><div class="server-actions"><button data-action="console" data-id="${s.id}">Buka console</button><button class="secondary" data-action="toggle" data-id="${s.id}">${s.status==='Online'?'Stop':'Start'}</button><button class="secondary" data-action="restart" data-id="${s.id}">Restart</button></div></article>`}
+function renderServers(){$('recentServers').innerHTML=servers.slice(0,3).map(serverCard).join('');$('allServers').innerHTML=servers.map(serverCard).join('');$('totalCount').textContent=servers.length;$('onlineCount').textContent=servers.filter(s=>s.status==='Online').length;$('offlineCount').textContent=servers.filter(s=>s.status==='Offline').length;$('consoleServer').innerHTML=servers.map(s=>`<option value="${s.id}">${s.name}</option>`).join('');$('consoleServer').value=selected;renderConsoleHead()}
+function log(text,cls=''){const row=document.createElement('div');if(cls)row.className=cls;row.textContent=text;$('logs').appendChild(row);$('logs').scrollTop=$('logs').scrollHeight}
+function renderConsoleHead(){const s=servers.find(s=>s.id===selected)||servers[0];selected=s.id;$('consoleName').textContent=s.name;$('consoleStatus').textContent=s.status;$('consoleStatus').className='status '+(s.status==='Offline'?'off':'')}
+function openConsole(id){selected=id;showPage('console');renderConsoleHead();$('consoleServer').value=id;log(`[DEMO] Console dibuka untuk ${$('consoleName').textContent}`,'warn')}
+function showPage(page){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+page));document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));const titles={dashboard:['Dashboard','Ringkasan server demo lu.'],servers:['Daftar Server','Kelola server contoh di satu tempat.'],console:['Console','Log dan perintah simulasi.'],account:['Akun Demo','Pengaturan tampilan akun demo.']};$('pageTitle').textContent=titles[page][0];$('subtitle').textContent=titles[page][1];}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.goto)));
+document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(!b)return;const s=servers.find(s=>s.id===b.dataset.id);if(!s)return;if(b.dataset.action==='console'){openConsole(s.id);return}if(b.dataset.action==='toggle'){s.status=s.status==='Online'?'Offline':'Online';s.cpu=s.status==='Online'?Math.floor(10+Math.random()*20):0;renderServers();log(`[DEMO] ${s.name}: status diubah ke ${s.status}`,'warn')}if(b.dataset.action==='restart'){s.status='Online';s.cpu=18;renderServers();log(`[DEMO] ${s.name}: simulasi restart selesai`,'good')}});
+$('consoleServer').addEventListener('change',e=>{selected=e.target.value;renderConsoleHead();log(`[DEMO] Berpindah ke ${$('consoleName').textContent}`,'warn')});
+function consoleAction(action){const s=servers.find(s=>s.id===selected);if(action==='start'){s.status='Online';s.cpu=15;log(`[DEMO] ${s.name} dimulai (simulasi).`,'good')}if(action==='stop'){s.status='Offline';s.cpu=0;log(`[DEMO] ${s.name} dihentikan (simulasi).`,'warn')}if(action==='restart'){s.status='Online';s.cpu=18;log(`[DEMO] ${s.name} direstart (simulasi).`,'good')}renderServers();renderConsoleHead()}
+$('startBtn').onclick=()=>consoleAction('start');$('stopBtn').onclick=()=>consoleAction('stop');$('restartBtn').onclick=()=>consoleAction('restart');
+$('commandForm').addEventListener('submit',e=>{e.preventDefault();const v=$('command').value.trim();if(!v)return;log('> '+v);log('[DEMO] Perintah tidak dieksekusi: console ini hanya simulasi.','warn');$('command').value=''});
+$('addServer').onclick=()=>{const name=prompt('Nama server demo baru?');if(!name||!name.trim())return;const id='demo'+Date.now();servers.push({id,name:name.trim().slice(0,35),type:'Demo Server',icon:'🖥️',status:'Offline',cpu:0,ram:'0 MB',disk:'0 GB'});renderServers();alert('Server demo ditambahkan. Ini tidak membuat server sungguhan.')};
+$('loginOpen').onclick=()=>$('loginModal').classList.add('show');$('closeModal').onclick=()=>$('loginModal').classList.remove('show');$('loginForm').addEventListener('submit',e=>{e.preventDefault();const n=$('demoName').value.trim();if(!n)return;localStorage.setItem('kryyPanelDemoName',n);updateUser();$('loginModal').classList.remove('show')});$('logout').onclick=()=>{localStorage.removeItem('kryyPanelDemoName');updateUser()};function updateUser(){$('userLabel').textContent='👤 '+(localStorage.getItem('kryyPanelDemoName')||'Guest')}$('logs').innerHTML='';log('[12:45:01] Kryy Panel Console — DEMO','good');log('[12:45:02] Menghubungkan ke server contoh...');log('[12:45:03] Tidak ada koneksi Pterodactyl API.','warn');log('[12:45:04] Siap untuk simulasi.');renderServers();updateUser();
+</script>
+</body>
+</html>
